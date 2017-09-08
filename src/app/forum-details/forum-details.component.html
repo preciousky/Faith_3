@@ -1,0 +1,75 @@
+<div class="f-container">
+  <div class="f-main">
+    <div class="f-essay">
+      <h1 class="f-essay-title">
+        {{essay.title}}
+      </h1>
+      <div class="f-essay-info">
+        <p>作者：{{essay.author}}
+        </p>
+        <p>{{essay.date}}</p>
+      </div>
+      <div class="f-essay-cont" [innerHTML]="essay.cont">
+    </div>
+      <button style="     float: right;
+                            margin-right: 85px;
+                            height: 50px;
+                            width: 50px;
+                            font-size: 23px;"
+              nz-button [nzType]="'danger'" [nzShape]="'circle'" (click)="toCollect()">
+        <i class="anticon anticon-like"></i>
+      </button></div>
+    <div class="comments">
+    <nz-table #nzTable
+              [nzAjaxData]="_dataSet"
+              [nzShowSizeChanger]="true"
+              [nzLoading]="_loading"
+              [nzTotal]="_total"
+              [(nzPageIndex)]="_current"
+              (nzPageIndexChange)="_refreshData()"
+              [(nzPageSize)]="_pageSize"
+              (nzPageSizeChange)="_refreshData()">
+      <tbody nz-tbody>
+      <tr nz-tbody-tr *ngFor="let data of nzTable.data">
+        <td nz-td>
+          <div>{{data.cont}}</div>
+          <span style="float:right; font-weight:100">{{data.date}}</span>
+          <span style="float:right; font-weight:100; margin: 0 12px">{{data.author}}</span>
+        </td>
+      </tr>
+      </tbody>
+    </nz-table>
+    <form nz-form [formGroup]="validateForm" (ngSubmit)="commentPublish()">
+      <div nz-form-item nz-row>
+        <div nz-col [nzSpan]="4" nz-form-label>
+          <label nz-form-item-required>发表评论:</label>
+        </div>
+        <div nz-col [nzSpan]="17" nz-form-control [nzValidateStatus]="getFormControl('comment')">
+          <nz-input formControlName="comment" [nzRows]="12" [nzType]="'textarea'" [nzPlaceHolder]="'说点什么~'" [nzSize]="'large'">
+          </nz-input>
+          <div nz-form-explain *ngIf="getFormControl('comment').dirty&&getFormControl('comment').hasError('required')">请输入您要发表的内容！</div>
+        </div>
+      </div>
+      <div nz-form-item nz-row>
+        <div nz-col [nzOffset]="7" [nzSpan]="12" nz-form-control>
+          <button nz-button [nzType]="'primary'" [nzSize]="'large'" [disabled]="!validateForm.valid">确认发表</button>
+        </div>
+      </div>
+    </form>
+    </div>
+  </div>
+  <!--<div class="f-left">-->
+    <!--<ul class="f-left-menu" nz-menu [nzMode]="'vertical'">-->
+      <!--<li nz-menu-item>-->
+        <!--<a [routerLink]="['/funnew', 'fof']"><i class="anticon anticon-appstore"></i>FOF资讯</a>-->
+      <!--</li>-->
+      <!--<li nz-menu-item>-->
+        <!--<a [routerLink]="['/funnew', 'ppp']"><i class="anticon anticon-appstore"></i>PPP资讯</a>-->
+      <!--</li>-->
+      <!--<li nz-menu-item>-->
+        <!--<a [routerLink]="['/funnew', 'green']"><i class="anticon anticon-appstore"></i>绿色产业基金资讯</a>-->
+      <!--</li>-->
+    <!--</ul>-->
+  <!--</div>-->
+  <!--<div class="f-right"></div>-->
+</div>

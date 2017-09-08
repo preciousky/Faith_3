@@ -1,0 +1,15 @@
+.declaration {
+  &-title {
+    text-align: center;
+    font-weight: 300;
+  }
+  &-info {
+    padding: 10px 50px;
+    text-align: right;
+  }
+  &-cont {
+    padding: 0 50px;
+    font-size: 18px;
+    text-indent: 32px;
+  }
+}

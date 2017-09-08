@@ -1,0 +1,41 @@
+.f-tool {
+  padding: 50px 0;
+  margin: 0 100px;
+  background: #fff;
+  text-align: center;
+
+  &-tab {
+    padding: 0 30px;
+  }
+  &-title {
+    font-size: 18px;
+    font-weight: 300;
+    text-align: center;
+  }
+
+  &-form {
+    margin-top: 50px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    > div {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      > div {
+        width: 300px;
+      }
+    }
+  }
+
+  &-btn {
+    width: 280px;
+  }
+
+  &-card {
+    display: flex;
+    justify-content: center;
+  }
+}

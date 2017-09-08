@@ -1,0 +1,89 @@
+<nz-header>
+  <ul nz-menu [nzTheme]="'light'" [nzMode]="'horizontal'" class="f-head-menu">
+    <li nz-menu-item style="height: 65px;">
+      <a class="logo" routerLink="/">
+        <img style="height: 62px;" src="./assets/pic/logo.png">
+      </a>
+    </li>
+    <li nz-submenu>
+      <span title><i class="anticon anticon-mail"></i>FOF基金产品</span>
+      <ul>
+        <li nz-menu-item>
+          <a [routerLink]="['/funlist', 'reco']">推荐产品</a>
+        </li>
+        <li nz-menu-item>
+            <a [routerLink]="['/funlist', 'soon']">即将上线</a>
+          </li>
+        <li nz-menu-item>
+            <a [routerLink]="['/funlist', 'lv']">LV绿色产业基金</a>
+        </li>
+      </ul>
+    </li>
+    <li nz-submenu>
+      <span title><i class="anticon anticon-mail"></i>资讯</span>
+      <ul>
+        <li nz-menu-item>
+            <a [routerLink]="['/funnew', 'fof']">FOF资讯</a>
+          </li>
+        <li nz-menu-item>
+            <a [routerLink]="['/funnew', 'ppp']">PPP资讯</a>
+          </li>
+        <li nz-menu-item>
+            <a [routerLink]="['/funnew', 'green']">绿色产业基金资讯</a>
+          </li>
+      </ul>
+    </li>
+    <li nz-submenu>
+      <span title><i class="anticon anticon-mail"></i>绿投基地</span>
+      <ul>
+        <li nz-menu-item>
+            <a [routerLink]="['/fungreen', 'trend']">绿投走向</a>
+        </li>
+        <li nz-menu-item>
+            <a [routerLink]="['/fungreen', 'risk']">风险教育</a>
+          </li>
+        <li nz-menu-item>
+            <a [routerLink]="['/fungreen', 'law']">法律法规</a>
+          </li>
+        <li nz-menu-item>
+            <a [routerLink]="['/fungreen', 'assert']">投资者维权</a>
+          </li>
+      </ul>
+    </li>
+    <li nz-menu-item>
+      <a routerLink="/funtool">基金工具</a>
+    </li>
+    <li nz-menu-item>
+      <a routerLink="/forum">论坛</a>
+    </li>
+  </ul>
+  <form  class="f-head-form" nz-form [nzLayout]="'inline'" [formGroup]="searchForm" (ngSubmit)="_submitSearch()">
+    <div style="margin-right: 30px; font-weight:100" nz-form-item>
+      <div *ngIf="userId != -1">
+        <p>欢迎，{{username}}</p>
+      </div>
+    </div>
+    <div  id="loginDiv" *ngIf="userId === -1" nz-form-item class="f-head-login" (click)="showLoginModal()">
+    <span><i id = "loginIcon" class="anticon anticon-login"></i></span>
+  </div>
+    <div id="hostDiv" *ngIf="userId != -1" nz-form-item>
+      <span><button style="size-weight:900" [nzShape]="'circle'" [nzType]="'primary'" nz-button (click)="toHost()"><i class="anticon anticon-user"></i></button></span>
+      <button nz-button (click) = "tologout()" [nzSize]="'small'" style="background-color: transparent">注销</button>
+    </div>
+    <div nz-form-item>
+      <div nz-form-control>
+        <nz-input formControlName="search" [nzPlaceHolder]="'请输入...'" [nzSize]="'large'">
+          <!-- <ng-template #prefix>
+            <i class="anticon anticon-search"></i>
+          </ng-template> -->
+        </nz-input>
+      </div>
+    </div>
+    <div nz-form-item style ="padding-top:3px" >
+    <button nz-button [nzSize]="'large'">
+        <i class="anticon anticon-search"></i>
+    </button>
+    </div>
+
+  </form>
+</nz-header>

@@ -1,0 +1,63 @@
+/* You can add global styles to this file, and also import other style files */
+html, body {
+  height: 100%;
+  min-width: 1000px;
+  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+}
+.f-btn-big {
+  margin-top: 24px;
+  width: 200px;
+  height: 36px;
+}
+
+.f {
+  &-container {
+    padding: 0 150px;
+    background: #fff;
+  }
+  &-main {
+    float: left;
+    width: 100%;
+    padding: 50px 0;
+    background: #fff;
+    &-title {
+      padding-left: 8px;
+      border-left: 5px solid #54a0de;
+      margin-left: 16px;
+      margin-bottom: 24px;
+      font-size: 24px;
+      font-weight: 300;
+    }
+  }
+  &-left {
+    position: relative;
+    left: -150px;
+    float: left;
+    width: 150px;
+    margin-left: -100%;
+    &-menu {
+      position: fixed;
+      margin-top: 100px;
+      width: 150px;
+    }
+  }
+  &-right {
+    position: relative;
+    right: -150px;
+    float: left;
+    width: 150px;
+    margin-left: -150px;
+  }
+  &-note {
+    border-left: 8px solid blue;
+    background-color: #cfcfcf;
+    margin: 10px 30px;
+  }
+}
+.f-sub-title{
+  padding-left: 5px;
+  border-left: 3px solid #54a0de;
+  margin: 20px;
+  font-size: 19px;
+  font-weight: 300;
+}

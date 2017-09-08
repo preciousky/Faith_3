@@ -1,0 +1,113 @@
+
+<div class="f-container">
+  <div class="f-main">
+    <div class="f-main-title">实名认证</div>
+    <form nz-form [formGroup]="CertificationForm" (ngSubmit)="_submitForm()">
+      <div nz-form-item nz-row>
+        <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+          <label nz-form-item-required>身份证号码</label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback [nzValidateStatus]="getFormControl('Id')">
+          <nz-input [nzSize]="'large'" formControlName="Id" [nzId]="'Id'"></nz-input>
+          <div nz-form-explain *ngIf="getFormControl('Id').dirty&&getFormControl('Id').hasError('required')">请填写您的身份证号</div>
+        </div>
+      </div>
+      <div nz-form-item nz-row>
+        <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+          <label nz-form-item-required>真实姓名</label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback [nzValidateStatus]="getFormControl('realname')">
+          <nz-input [nzSize]="'large'" formControlName="realname" [nzId]="'realname'"></nz-input>
+          <div nz-form-explain *ngIf="getFormControl('realname').dirty&&getFormControl('realname').hasError('required')">请填写您的真实姓名</div>
+        </div>
+      </div>
+      <div nz-form-item nz-row>
+        <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+          <label nz-form-item-required>银行名称</label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback [nzValidateStatus]="getFormControl('bankname')">
+          <nz-input [nzSize]="'large'" formControlName="bankname" [nzId]="'bankname'"></nz-input>
+          <div nz-form-explain *ngIf="getFormControl('bankname').dirty&&getFormControl('bankname').hasError('required')">请填写银行名称</div>
+        </div>
+      </div>
+      <div nz-form-item nz-row>
+        <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+          <label nz-form-item-required>银行卡号</label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback [nzValidateStatus]="getFormControl('bankcardNo')">
+          <nz-input [nzSize]="'large'" formControlName="bankcardNo" [nzId]="'bankcardNo'"></nz-input>
+          <div nz-form-explain *ngIf="getFormControl('bankcardNo').dirty&&getFormControl('bankcardNo').hasError('required')">请输入银行卡号</div>
+        </div>
+      </div>
+      <div nz-form-item nz-row>
+        <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+          <label nz-form-item-required>银行预留手机号</label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback [nzValidateStatus]="getFormControl('bankphone')">
+          <nz-input [nzSize]="'large'" formControlName="bankphone" [nzId]="'bankphone'"></nz-input>
+          <div nz-form-explain *ngIf="getFormControl('bankphone').dirty&&getFormControl('bankphone').hasError('required')">请填写银行预留手机号</div>
+        </div>
+      </div>
+      <div nz-form-item nz-row>
+        <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+          <label nz-form-item-required>开户地</label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback [nzValidateStatus]="getFormControl('bankarea')">
+          <nz-input [nzSize]="'large'" formControlName="bankarea" [nzId]="'bankarea'"></nz-input>
+          <div nz-form-explain *ngIf="getFormControl('bankarea').dirty&&getFormControl('bankarea').hasError('required')">请填写银行账户开户地</div>
+        </div>
+      </div>
+      <div nz-form-item nz-row>
+        <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+          <label nz-form-item-required>设置交易密码</label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback [nzValidateStatus]="getFormControl('tcode')">
+          <nz-input [nzType]="'password'" [nzSize]="'large'" formControlName="tcode" [nzId]="'tcode'"></nz-input>
+          <div nz-form-explain *ngIf="getFormControl('tcode').dirty&&getFormControl('tcode').hasError('required')">请设置交易密码</div>
+        </div>
+      </div>
+      <div nz-form-item nz-row>
+        <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+          <label nz-form-item-required>重新输入交易密码</label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" nzHasFeedback [nzValidateStatus]="getFormControl('retcode')">
+          <nz-input [nzSize]="'large'" [nzType]="'password'" formControlName="retcode" [nzType]="'retcode'" [nzId]="'retcode'"></nz-input>
+          <div nz-form-explain *ngIf="getFormControl('retcode').dirty&&getFormControl('retcode').hasError('required')">请重新输入您的交易密码</div>
+          <div nz-form-explain *ngIf="getFormControl('retcode').dirty&&getFormControl('retcode').hasError('confirm')">两次输入的交易密码不一致</div>
+        </div>
+      </div>
+
+      <div nz-form-item nz-row>
+        <div nz-form-label nz-col [nzSm]="6" [nzXs]="24">
+          <label nz-form-item-required>Captcha</label>
+        </div>
+        <div nz-form-control nz-col [nzSm]="14" [nzXs]="24" [nzValidateStatus]="getFormControl('captcha')">
+          <div nz-row [nzGutter]="8">
+            <div nz-col [nzSpan]="12">
+              <nz-input [nzSize]="'large'" formControlName="captcha" [nzId]="'captcha'"></nz-input>
+            </div>
+            <div nz-col [nzSpan]="12">
+              <button nz-button [nzSize]="'large'" (click)="getCaptcha($event)">Get captcha</button>
+            </div>
+          </div>
+          <div nz-form-extra>We must make sure that your are a human.</div>
+          <div nz-form-explain *ngIf="getFormControl('captcha').dirty&&getFormControl('captcha').hasError('required')">Please input the captcha you got!</div>
+        </div>
+      </div>
+      <div nz-form-item nz-row style="margin-bottom:8px;">
+        <div nz-form-control nz-col [nzSpan]="14" [nzOffset]="6">
+          <label nz-checkbox formControlName="agree">
+            <span>I have read the <a>agreement</a></span>
+          </label>
+        </div>
+      </div>
+      <div nz-form-item nz-row style="margin-bottom:8px;">
+        <div nz-form-control nz-col [nzSpan]="14" [nzOffset]="6">
+          <button nz-button [nzSize]="'large'" [nzType]="'primary'" (click)="toCertificate()" style = "width:300px">确认实名认证</button>
+        </div>
+      </div>
+    </form>
+
+
+  </div>
+</div>

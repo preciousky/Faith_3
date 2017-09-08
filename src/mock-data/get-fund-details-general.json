@@ -1,0 +1,19 @@
+{
+	 "fund" : {
+			"name" : "test-name",
+			"code" : "test-code",
+			"full_name" : "test_full_name",
+			"type" : "test_type",
+			"found_date" : "test_found_date",
+			"state" : "test_state",
+			"trade_state": "test_trade_state",
+			"company" : "test_company",
+			"manager" : "test_manager",
+			"mng_fee" : "test_mng_fee",
+			"save_fee" : "test_save_fee",
+			"first_scale": "test_first_scale",
+			"lastest_value" : "test_last_value",
+			"bank" : "test_bank",
+			"lastest_scala" : "test_lastest_scala"
+	 }
+}

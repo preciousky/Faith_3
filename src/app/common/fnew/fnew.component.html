@@ -1,0 +1,14 @@
+<div class="f-new">
+  <nz-card style="width:90%;margin-bottom: 30px;" *ngFor="let itm of fNewList">
+      <ng-template #title>
+        {{itm.title}}
+      </ng-template>
+      <ng-template #extra>
+        <a [routerLink]="[routeURL, itm.id]">More</a>
+      </ng-template>
+      <ng-template #body>
+        {{itm.info}}
+        <span style="float: right;margin-top: 12px;">{{itm.date || itm.from}}</span>
+      </ng-template>
+    </nz-card>
+</div>

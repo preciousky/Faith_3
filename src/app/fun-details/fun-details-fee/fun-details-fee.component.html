@@ -1,0 +1,122 @@
+
+<div class="f-sub-title">认购相关费用</div>
+<h3>前端认购费率</h3>
+<table>
+  <tbody >
+  <tr >
+    <th><span>申购金额（万元）</span></th>
+    <td *ngFor="let category of fund_subscribe['categories']">
+      {{category}}
+    </td>
+  </tr>
+  <tr>
+    <th><span>申购费率</span></th>
+    <td *ngFor="let value of fund_subscribe['values']">
+      {{value}}
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3>后端认购费率</h3>
+
+<h4>暂无此收费方式</h4>
+
+<div class="f-sub-title">申购相关费用</div>
+<h3>前端申购费率</h3>
+<table>
+  <tbody >
+  <tr>
+    <th >申购金额/万元</th>
+    <td *ngFor="let category of fund_purchase['categories']">
+    {{category}}
+    </td>
+  </tr>
+  <tr >
+    <th >申购费率</th>
+    <td *ngFor="let value of fund_purchase['values']">
+      {{value}}
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3>后端认购费率</h3>
+
+    <h4>暂无此收费方式</h4>
+
+
+<h3>申购限制</h3>
+<table>
+  <tbody >
+  <tr>
+    <th ><span>申购起点</span></th>
+    <th ><span>日累计申购限额</span></th>
+    <th ><span>首次购买</span></th>
+    <th ><span>追加购买</span></th>
+  </tr>
+  <tr>
+    <td *ngFor="let limitation of fund_purchase['limitations']">
+      {{limitation}}
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+  <div class="f-sub-title">赎回相关费用</div>
+  <h3>前端赎回费率</h3>
+  <table>
+    <tbody >
+    <tr>
+      <th >持有年限</th>
+      <td *ngFor="let category of fund_redeem['categories']">
+        {{category}}
+      </td>
+    </tr>
+    <tr >
+      <th >赎回费率</th>
+      <td *ngFor="let value of fund_redeem['values']">
+        {{value}}
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+
+
+  <h3>后端认购费率</h3>
+
+      <h4>暂无此收费方式</h4>
+
+  <h3>赎回限制</h3>
+  <table>
+    <tbody >
+    <tr>
+      <th >单笔最小赎回份额</th>
+      <th >账户最低保留份额</th>
+    </tr>
+    <tr >
+      <td *ngFor="let limitation of fund_redeem['limitations']">
+        {{limitation}}
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div class="f-sub-title">其他费用</div>
+  <table>
+    <tbody >
+    <tr>
+      <th >销售服务费率</th>
+      <th >基金管理费率</th>
+      <th >基金托管费率</th>
+    </tr>
+    <tr>
+      <td *ngFor="let value of others['values']">
+        {{value}}
+      </td>
+    </tr>
+    </tbody>
+  </table>
+<p style="    margin-left: 42px;
+    margin-top: 15px;">*本基金费率来源基金公司，请以基金公司官网提供的费率数据为准。</p>

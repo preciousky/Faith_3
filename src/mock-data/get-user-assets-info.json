@@ -1,0 +1,36 @@
+{
+"user":{
+		
+		"is_auth": "true",
+		"savings": "9999",
+		"total_asset": "19999",
+		"total_profit": "29999",
+		"funds_netvalue": "39999",
+		"favorite":[
+			{
+				"fund_id": "999" ,
+				"name": "基金名称-收藏-测试",
+				"netvalue": "100",
+				"date": "2017-1-1"
+			},{
+				"fund_id": "999" ,
+				"name": "基金名称-收藏-测试",
+				"netvalue": "100",
+				"date": "2017-1-1"
+			},{
+				"fund_id": "999" ,
+				"name": "基金名称-收藏-测试",
+				"netvalue": "100",
+				"date": "2017-1-1"
+			},{
+				"fund_id": "999" ,
+				"name": "基金名称-收藏-测试",
+				"netvalue": "100",
+				"date": "2017-1-1"
+			}
+		]
+		},
+		
+		"saving_date": "2017-8-8",
+		"saving_rate": "1.23"
+}

@@ -1,0 +1,13 @@
+<div *ngFor="let card of fCardList">
+  <nz-card class="smallcard">
+    <ng-template #title>
+      <h4 (click)="goDetails(card.fund_id)">{{card.name}}</h4>
+    </ng-template>
+    <ng-template #body>
+      <div class =  "smallcardcontent">
+        <p>净值：<span style="font-weight:900">{{card.netvalue}}</span></p>
+        <p>日期：<span style="font-weight:900">{{card.date}}</span></p>
+      </div>
+    </ng-template>
+  </nz-card>
+</div>

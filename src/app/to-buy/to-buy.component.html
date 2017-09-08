@@ -1,0 +1,122 @@
+<div class="f-container">
+  <div class="f-main">
+    <div class="toBuyContent">
+      <div class="f-main-title">购买基金</div>
+      <div class="steps">
+    <nz-steps [(nzCurrent)]="current" >
+      <nz-step [nzTitle]="'填写信息'" [nzDescription]="''"></nz-step>
+      <nz-step [nzTitle]="'确认信息'" [nzDescription]="''"></nz-step>
+      <nz-step [nzTitle]="'购买结果'" [nzDescription]="''"></nz-step>
+    </nz-steps>
+      </div>
+    <div class="myStepContent" *ngIf="current === 0">
+      <form nz-form [nzType]="'horizontal'" [formGroup]="toBuyForm">
+
+        <div nz-form-item nz-row>
+          <div nz-form-label nz-col [nzSpan]="6">
+            <label>基金名称</label>
+          </div>
+          <div nz-form-control nz-col [nzSpan]="14">
+            <span nz-form-text>{{fundName}}</span>
+          </div>
+        </div>
+        <div nz-form-item nz-row>
+          <div nz-form-label nz-col [nzSpan]="6">
+            <label>购买金额</label>
+          </div>
+          <div nz-form-control nz-col [nzSpan]="14">
+            <nz-input-number formControlName="input_number" [nzSize]="'large'" [nzStep]="1"  [nzMin]="1"></nz-input-number>
+            <span nz-form-text>元</span>
+          </div>
+        </div>
+        <!--<div nz-form-item nz-row>-->
+          <!--<div nz-form-label nz-col [nzSpan]="6">-->
+            <!--<label>预估手续费</label>-->
+          <!--</div>-->
+          <!--<div nz-form-control nz-col [nzSpan]="14">-->
+            <!--<span nz-form-text>{{fee}}</span>-->
+          <!--</div>-->
+        <!--</div>-->
+        <div nz-form-item nz-row>
+          <div nz-form-label nz-col [nzSpan]="6">
+            <label>支付账户</label>
+          </div>
+          <div nz-form-control nz-col [nzSpan]="14" *ngIf="fundId != '-2'">
+            <nz-radio-group formControlName="radio_button">
+              <label nz-radio-button [nzValue]="1">
+                <span>储蓄罐</span>
+              </label>
+              <label nz-radio-button [nzValue]="2">
+                <span>银行卡</span>
+              </label>
+            </nz-radio-group>
+          </div>
+        </div>
+
+
+
+
+
+
+          <div nz-row nz-form-item *ngIf="this.toBuyForm.controls[ 'radio_button' ].value === 2 || fundId === '-2'">
+            <div nz-form-control nz-col style="margin: 0 100px;">
+              <nz-radio-group formControlName="radio_group">
+            <div  class="bankcards" nz-radio  nz-col *ngFor="let card of bankcards.bankcards" [nzSpan]="11"  [nzValue]= card.bankcard_no >
+              <div nz-row class = 'myrow' style="margin: 0 0px ;">
+                <div nz-col [nzSpan]="14" class = 'value bankcardNo'>{{card.bankcard_no}}</div>
+              </div >
+              <div class = 'myrow'>
+                <div class = 'key' nz-col [nzSpan]="8">开户银行：</div>
+                <div class = 'value'nz-col [nzSpan]="14">{{card.bankname}}</div>
+              </div>
+                <div class = 'myrow'>
+                <div class = 'key'nz-col [nzSpan]="8">开户地：</div>
+                <div class = 'value'nz-col [nzSpan]="14">{{card.bankarea}}</div>
+                </div>
+                  <div class = 'myrow'>
+                <div class = 'key'nz-col [nzSpan]="8">预留手机：</div>
+                <div class = 'value'nz-col [nzSpan]="14">{{card.bankphone}}</div>
+              </div >
+            </div>
+              </nz-radio-group>
+            </div>
+          </div>
+
+
+
+
+        <div nz-form-item nz-row style="margin-bottom:8px;">
+          <div nz-form-control nz-col [nzSpan]="14" [nzOffset]="6">
+            <label nz-checkbox formControlName="agree">
+              <span>I have read the <a>agreement</a></span>
+            </label>
+          </div>
+        </div>
+        <div nz-form-item nz-row>
+          <div nz-form-control nz-col [nzSpan]="12" [nzOffset]="6">
+            <button nz-button [nzType]="'primary'" [nzSize]="'large'" (click)="next1_2()">下一步</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="myStepContent" *ngIf="current === 1">
+      <div class="f-sub-title" style="margin-left: 83px;color:red">请认真核对您的交易信息  确认无误后再执行购买</div>
+          <div class = 'checkInfo'>基金名称：{{fundName}}</div>
+          <div class = 'checkInfo'>购买金额：{{expense}}元</div>
+          <div class = 'checkInfo'>预估手续费：{{fee}}元</div>
+          <!--<div class = 'checkInfo'>支付总额：{{ fee + expense}}元</div>-->
+          <div class = 'checkInfo'>支付方式：
+            <span *ngIf = "this.toBuyForm.controls[ 'radio_button' ].value === 1">储蓄罐支付</span>
+            <span *ngIf ="this.toBuyForm.controls[ 'radio_button' ].value === 2">银行卡支付(卡号 {{this.toBuyForm.controls[ 'radio_group' ].value}})</span>
+          </div>
+      <button nz-button (click)="checkToBuy()"  nzType="primary" [nzSize]="large" style="    margin-top: 36px;
+    margin-left: 96px;"> 确认购买</button>
+    </div>
+    <div class="myStepContent" *ngIf="current === 2">
+      <div class = 'resultMsg'>{{msg}}</div>
+      <button nz-button nzType="primary" [nzSize]="large" style="    margin-top: 36px;
+    margin-left: 96px;" (click)="toFundList()">返回基金介绍</button>
+    </div>
+    </div>
+  </div>
+</div>

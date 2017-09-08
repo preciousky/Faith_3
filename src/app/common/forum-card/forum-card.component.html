@@ -1,0 +1,18 @@
+
+
+<div class="f-new">
+  <nz-card style="width:90%;margin-bottom: 10px;" *ngFor="let itm of fNewList">
+    <ng-template #title>
+      <span>{{itm.title}}</span>
+      <nz-badge [nzCount]= "itm.star" style=" margin-left: 5px;margin-bottom: 5px;"></nz-badge>
+    </ng-template>
+    <ng-template #extra>
+      <a style="float: right; margin-left:10px" (click) = "todetails(itm.id)">More </a>
+      <span >{{itm.date || itm.from}}</span>
+    </ng-template>
+    <ng-template #body>
+      {{itm.info}}
+    </ng-template>
+  </nz-card>
+</div>
+

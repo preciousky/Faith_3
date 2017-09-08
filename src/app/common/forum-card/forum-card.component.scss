@@ -1,0 +1,20 @@
+.f-new {
+  padding: 0 50px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+#f-new {
+  padding: 5px;
+  padding-left: 24px;
+}
+
+:host ::ng-deep .ant-badge {
+  margin-right: 16px;
+}
+
+.head-example {
+  width: 0;
+  height: 12px;
+  display: inline-block;
+}

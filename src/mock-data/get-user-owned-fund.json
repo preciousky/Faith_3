@@ -1,0 +1,50 @@
+{
+	"owned_funds": [
+		{
+			"fund_id": "999",
+			"fund_name": "基金名称-我的持仓-测试",
+			"fund_last_netvalue":"2999",
+			"ship_share":"99999",
+			"ship_vaild_share": "90000",
+			"ship_bankcard_no": "9999999999999999999999",
+			"ship_state": "基金状态-我的持仓-测试"
+		},
+		{
+			"fund_id": "999",
+			"fund_name": "基金名称-我的持仓-测试",
+			"fund_last_netvalue":"2999",
+			"ship_share":"99999",
+			"ship_vaild_share": "90000",
+			"ship_bankcard_no": "9999999999999999999999",
+			"ship_state": "基金状态-我的持仓-测试"
+		},
+		{
+			"fund_id": "999",
+			"fund_name": "基金名称-我的持仓-测试",
+			"fund_last_netvalue":"2999",
+			"ship_share":"99999",
+			"ship_vaild_share": "90000",
+			"ship_bankcard_no": "9999999999999999999999",
+			"ship_state": "基金状态-我的持仓-测试"
+		},
+		{
+			"fund_id": "999",
+			"fund_name": "基金名称-我的持仓-测试",
+			"fund_last_netvalue":"2999",
+			"ship_share":"99999",
+			"ship_vaild_share": "90000",
+			"ship_bankcard_no": "9999999999999999999999",
+			"ship_state": "基金状态-我的持仓-测试"
+		},
+		{
+			"fund_id": "999",
+			"fund_name": "基金名称-我的持仓-测试",
+			"fund_last_netvalue":"2999",
+			"ship_share":"99999",
+			"ship_vaild_share": "90000",
+			"ship_bankcard_no": "9999999999999999999999",
+			"ship_state": "基金状态-我的持仓-测试"
+		}
+	],
+	"log_num":"100"
+}

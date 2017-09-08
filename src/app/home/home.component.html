@@ -1,0 +1,98 @@
+<nz-carousel [nzAutoPlay]="true" style = "height: 490px">
+  <div nz-carousel-content  style = "height: 490px" *ngFor="let pic of picList" [ngStyle]="{'background-image': 'url(' + pic.src + ')'}">
+      <div>{{pic.title}}</div>
+  </div>
+</nz-carousel>
+
+<div class="f-odd">
+    <div class="f-odd-info">
+      <p>精挑细选的优质基金</p>
+      <p>精挑细选的优质基金精挑细选的优质基金精挑细选的优质基金精挑细选的优质基金</p>
+    </div>
+    <div [style.padding]="'0 100px'">
+      <fcard [fCardList]="fCardListRecommendation"></fcard>
+    </div>
+    <div [ngStyle]="{'text-align': 'center'}">
+      <button class="f-btn-big" nz-button [nzGhost]="false" [nzSize]="'large'" (click)="toAllFunds()">查看全部</button>
+    </div>
+</div>
+
+<div class="f-even">
+  <div class="f-even-info">
+    <p>前所未有的优质服务</p>
+    <p>前所未有的优质服务前所未有的优质服务前所未有的优质服务前所未有的优质服务</p>
+  </div>
+  <div class="f-home-cont">
+
+  </div>
+</div>
+
+<div class="f-odd">
+  <div class="f-odd-info">
+    <p>条理清晰的投资流程</p>
+    <p>条理清晰的投资流程条理清晰的投资流程条理清晰的投资流程条理清晰的投资流程</p>
+  </div>
+  <div class="f-home-cont" style="margin: 0 100px;">
+    <nz-steps nzCurrent="5">
+      <nz-step [nzTitle]="'注册'" [nzDescription]="''">
+        <ng-template #nzIcon>
+          <i  style="font-size: 52px;" class="anticon anticon-user"></i>
+        </ng-template>
+      </nz-step>
+      <nz-step [nzTitle]="'充值'" [nzDescription]="''">
+        <ng-template #nzIcon>
+          <i style="font-size: 52px;" class="anticon anticon-pay-circle-o"></i>
+        </ng-template>
+      </nz-step>
+      <nz-step [nzTitle]="'挑选基金'" [nzDescription]="''">
+        <ng-template #nzIcon>
+          <i  style="font-size: 52px;" class="anticon anticon-scan"></i>
+        </ng-template>
+      </nz-step>
+      <nz-step [nzTitle]="'投资'" [nzDescription]="''">
+        <ng-template #nzIcon>
+          <i  style="font-size: 52px;" class="anticon anticon-fork"></i>
+        </ng-template>
+      </nz-step>
+      <nz-step [nzTitle]="'盈利'" [nzDescription]="''">
+        <ng-template #nzIcon>
+          <i  style="font-size: 52px;" class="anticon anticon-smile-o"></i>
+        </ng-template>
+      </nz-step>
+    </nz-steps>
+  </div>
+</div>
+
+<div class="f-even">
+  <div class="f-even-info">
+    <p>携手共赢，与全球合作伙伴共建优质基金</p>
+    <p>前所未有的优质服务前所未有的优质服务前所未有的优质服务前所未有的优质服务</p>
+  </div>
+  <div class="f-home-cont f-home-cont-flex" style="margin: 0 119px;">
+    <div class="f-home-cont-flex-pic">
+      <img class="f-home-gray" src="./assets/pic/citiicon.jpg" alt="">
+    </div>
+    <div class="f-home-cont-flex-pic">
+      <img class="f-home-gray" src="./assets/pic/citiicon.jpg" alt="">
+    </div>
+    <div class="f-home-cont-flex-pic">
+      <img class="f-home-gray" src="./assets/pic/citiicon.jpg" alt="">
+    </div>
+    <div class="f-home-cont-flex-pic">
+      <img class="f-home-gray" src="./assets/pic/citiicon.jpg" alt="">
+    </div>
+    <div class="f-home-cont-flex-pic">
+      <img class="f-home-gray" src="./assets/pic/citiicon.jpg" alt="">
+    </div>
+    <div class="f-home-cont-flex-pic">
+      <img class="f-home-gray" src="../../assets/pic/citiicon.jpg" alt="">
+    </div>
+  </div>
+</div>
+
+<div class="f-odd">
+  <div class="f-even-info">
+    <p>现在注册，即可享受多重福利</p>
+    <button class="f-btn-big" nz-button [nzType]="'primary'" [nzGhost]="true" [nzSize]="'large'" routerLink="/reg">免费注册</button>
+  </div>
+</div>

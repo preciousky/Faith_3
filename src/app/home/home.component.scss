@@ -1,0 +1,70 @@
+home {
+  height: 100%;
+}
+:host ::ng-deep .ant-carousel .slick-slide {
+  width: 100%;
+  height: 500px;
+  line-height: 500px;
+  text-align: center;
+  overflow: hidden;
+  color: #fff;
+  font-size: 36px;
+  background-size: 100% auto;
+}
+
+.f-odd {
+  padding: 50px 0;
+  background: #fff;
+  &-info {
+    padding-bottom: 24px;
+    text-align: center;
+    color: #40454a;
+    > p:nth-child(1) {
+      font-size: 28px;
+      font-weight: 300;
+    }
+    > p:nth-child(2) {
+      font-size: 18px;
+      font-weight: 300;
+    }
+  }
+}
+
+.f-even {
+  padding: 50px 0;
+  background: #eee;
+  &-info {
+    padding-bottom: 24px;
+    text-align: center;
+    color: #40454a;
+    > p:nth-child(1) {
+      font-size: 28px;
+      font-weight: 300;
+    }
+    > p:nth-child(2) {
+      font-size: 18px;
+      font-weight: 300;
+    }
+  }
+}
+.f-home-cont {
+  padding: 0 50px;
+  margin-top: 32px;
+  &-flex {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    &-pic {
+      width: 16.6%;
+      text-align: center;
+    }
+  }
+}
+//.f-home-gray {
+//  filter: grayscale(100%);
+//  &:hover {
+//    filter: grayscale(0%);
+//  }
+//}

@@ -1,0 +1,17 @@
+<div class="f-card">
+  <div class="f-card-li" *ngFor="let card of fCardList">
+    <nz-card style="width:300px" (click)="goDetails(card.fund_id)">
+      <ng-template #body>
+        <h2>{{card.name}}</h2>
+        <div class="f-card-li-img">
+          <img [src]="'./assets/pic/' + card.pic + '.jpg'"/>
+        </div>
+        <div class="f-card-li-msg">
+          <p style="font-size: 16px; padding: 22px;">{{card.reason ? card.reason : '暂无介绍'}}</p>
+          <p style="height: 39px; font-size: 21px; font-weight:100">预估净值：<span style="color:orange;font-weight: 900; font-size:28px">{{card.forecast_profit_rate}}</span></p>
+          <h3 style="color: blue">了解详情</h3>
+        </div>
+      </ng-template>
+    </nz-card>
+  </div>
+</div>

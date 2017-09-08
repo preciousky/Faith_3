@@ -1,0 +1,95 @@
+{
+	"funds" : [
+		{
+		"fund_id" : "999",
+		"name": "基金名称-详情-测试",
+		"lastest_netvalue": "0.9",
+		"lastest_netvalue_date": "2017-9-9",
+		"date": "1999-9-9",
+		"oneyear_profit_rate": "0.99",
+		"total_profit_rate": "0.999"
+		},
+		{
+		"fund_id" : "999",
+		"name": "基金名称-详情-测试",
+		"lastest_netvalue": "0.9",
+		"lastest_netvalue_date": "2017-9-9",
+		"date": "1999-9-9",
+		"oneyear_profit_rate": "0.99",
+		"total_profit_rate": "0.999"
+		},
+		{
+		"fund_id" : "999",
+		"name": "基金名称-详情-测试",
+		"lastest_netvalue": "0.9",
+		"lastest_netvalue_date": "2017-9-9",
+		"date": "1999-9-9",
+		"oneyear_profit_rate": "0.99",
+		"total_profit_rate": "0.999"
+		},
+		{
+		"fund_id" : "999",
+		"name": "基金名称-详情-测试",
+		"lastest_netvalue": "0.9",
+		"lastest_netvalue_date": "2017-9-9",
+		"date": "1999-9-9",
+		"oneyear_profit_rate": "0.99",
+		"total_profit_rate": "0.999"
+		},
+		{
+		"fund_id" : "999",
+		"name": "基金名称-详情-测试",
+		"lastest_netvalue": "0.9",
+		"lastest_netvalue_date": "2017-9-9",
+		"date": "1999-9-9",
+		"oneyear_profit_rate": "0.99",
+		"total_profit_rate": "0.999"
+		},
+		{
+		"fund_id" : "999",
+		"name": "基金名称-详情-测试",
+		"lastest_netvalue": "0.9",
+		"lastest_netvalue_date": "2017-9-9",
+		"date": "1999-9-9",
+		"oneyear_profit_rate": "0.99",
+		"total_profit_rate": "0.999"
+		},
+		{
+		"fund_id" : "999",
+		"name": "基金名称-详情-测试",
+		"lastest_netvalue": "0.9",
+		"lastest_netvalue_date": "2017-9-9",
+		"date": "1999-9-9",
+		"oneyear_profit_rate": "0.99",
+		"total_profit_rate": "0.999"
+		},
+		{
+		"fund_id" : "999",
+		"name": "基金名称-详情-测试",
+		"lastest_netvalue": "0.9",
+		"lastest_netvalue_date": "2017-9-9",
+		"date": "1999-9-9",
+		"oneyear_profit_rate": "0.99",
+		"total_profit_rate": "0.999"
+		},
+		{
+		"fund_id" : "999",
+		"name": "基金名称-详情-测试",
+		"lastest_netvalue": "0.9",
+		"lastest_netvalue_date": "2017-9-9",
+		"date": "1999-9-9",
+		"oneyear_profit_rate": "0.99",
+		"total_profit_rate": "0.999"
+		},
+		{
+		"fund_id" : "999",
+		"name": "基金名称-详情-测试",
+		"lastest_netvalue": "0.9",
+		"lastest_netvalue_date": "2017-9-9",
+		"date": "1999-9-9",
+		"oneyear_profit_rate": "0.99",
+		"total_profit_rate": "0.999"
+		}
+	],
+	"log_num":"101"
+}

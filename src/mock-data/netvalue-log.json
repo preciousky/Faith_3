@@ -1,0 +1,21 @@
+{
+	"netvalues_log":[
+		{
+			"netvalue": "100",
+			"date": "2017-1-1"
+		},
+		{
+			"netvalue": "100",
+			"date": "2016-1-7"
+		},
+		{
+			"netvalue": "100",
+			"date": "2016-1-6"
+		},
+		{
+			"netvalue": "100",
+			"date": "2016-1-5"
+		}
+	],
+	"log_num":"20"
+}

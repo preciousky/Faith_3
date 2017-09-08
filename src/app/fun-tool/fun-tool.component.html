@@ -1,0 +1,168 @@
+<div class="f-tool">
+  <nz-tabset class="f-tool-tab">
+    <nz-tab>
+      <ng-template #nzTabHeading>
+        任/申购计算器
+      </ng-template>
+      <div>
+        <p class="f-tool-title">适用于计算认/申购基金的手续费和成交份额</p>
+        <form nz-form [formGroup]="toolOne" class="f-tool-form" (ngSubmit)="getOne()">
+          <div nz-form-item>
+            <div nz-form-control [nzValidateStatus]="toolOne.controls.amount">
+              <nz-input formControlName="amount" [nzType]="'number'" [nzPlaceHolder]="'认/申购金额'" [nzSize]="'large'">
+                <ng-template #addOnAfter>
+                  元
+                </ng-template>
+              </nz-input>
+              <div nz-form-explain *ngIf="toolOne.controls.amount.dirty&&toolOne.controls.amount.hasError('required')">Please input your amount!</div>
+            </div>
+          </div>
+          <div nz-form-item>
+            <div nz-form-control [nzValidateStatus]="toolOne.controls.netValue">
+              <nz-input formControlName="netValue" [nzType]="'number'" [nzPlaceHolder]="'单位净值'" [nzSize]="'large'">
+                <ng-template #addOnAfter>
+                  元
+                </ng-template>
+              </nz-input>
+              <div nz-form-explain *ngIf="toolOne.controls.netValue.dirty&&toolOne.controls.netValue.hasError('required')">Please input your netValue!</div>
+            </div>
+          </div>
+          <div nz-form-item>
+            <div nz-form-control [nzValidateStatus]="toolOne.controls.rate">
+              <nz-input formControlName="rate" [nzType]="'number'" [nzPlaceHolder]="'认/申购费率'" [nzSize]="'large'">
+                <ng-template #addOnAfter>
+                  %
+                </ng-template>
+              </nz-input>
+              <div nz-form-explain *ngIf="toolOne.controls.rate.dirty&&toolOne.controls.rate.hasError('required')">Please input your rate!</div>
+            </div>
+          </div>
+          <div nz-form-item>
+            <div nz-form-control>
+              <button class="f-tool-btn" nz-button [nzType]="'primary'" [nzSize]="'large'">计  算</button>
+            </div>
+          </div>
+        </form>
+        <div class="f-tool-card">
+          <nz-card style="width:300px;">
+            <ng-template #title>
+              计算结果
+            </ng-template>
+            <ng-template #body>
+              <p>认/申购手续费: <span *ngIf="resultOne.one != null">{{resultOne.one + '元'}}</span></p>
+              <p>认/申购成交份额: <span *ngIf="resultOne.two != null">{{resultOne.two + '份'}}</span></p>
+            </ng-template>
+          </nz-card>
+        </div>
+      </div>
+    </nz-tab>
+    <nz-tab>
+      <ng-template #nzTabHeading>
+        赎回计算器
+      </ng-template>
+      <p class="f-tool-title">适用于计算赎回基金的手续费和实际所得金额</p>
+      <form nz-form [formGroup]="toolTwo" class="f-tool-form" (ngSubmit)="getTwo()">
+        <div nz-form-item>
+          <div nz-form-control [nzValidateStatus]="toolTwo.controls.portio">
+            <nz-input formControlName="portio" [nzType]="'number'" [nzPlaceHolder]="'赎回份额'" [nzSize]="'large'">
+              <ng-template #addOnAfter>
+                份
+              </ng-template>
+            </nz-input>
+            <div nz-form-explain *ngIf="toolTwo.controls.portio.dirty&&toolTwo.controls.portio.hasError('required')">Please input your portio!</div>
+          </div>
+        </div>
+        <div nz-form-item>
+          <div nz-form-control [nzValidateStatus]="toolTwo.controls.netValue">
+            <nz-input formControlName="netValue" [nzType]="'number'" [nzPlaceHolder]="'赎回净值'" [nzSize]="'large'">
+              <ng-template #addOnAfter>
+                元
+              </ng-template>
+            </nz-input>
+            <div nz-form-explain *ngIf="toolTwo.controls.netValue.dirty&&toolTwo.controls.netValue.hasError('required')">Please input your netValue!</div>
+          </div>
+        </div>
+        <div nz-form-item>
+          <div nz-form-control [nzValidateStatus]="toolTwo.controls.rate">
+            <nz-input formControlName="rate" [nzType]="'number'" [nzPlaceHolder]="'赎回费率'" [nzSize]="'large'">
+              <ng-template #addOnAfter>
+                %
+              </ng-template>
+            </nz-input>
+            <div nz-form-explain *ngIf="toolTwo.controls.rate.dirty&&toolTwo.controls.rate.hasError('required')">Please input your rate!</div>
+          </div>
+        </div>
+        <div nz-form-item>
+          <div nz-form-control>
+            <button class="f-tool-btn" nz-button [nzType]="'primary'" [nzSize]="'large'">计  算</button>
+          </div>
+        </div>
+      </form>
+      <div class="f-tool-card">
+        <nz-card style="width:300px;">
+          <ng-template #title>
+            计算结果
+          </ng-template>
+          <ng-template #body>
+            <p>赎回手续费: <span *ngIf="resultTwo.one != null">{{resultTwo.one + '元'}}</span></p>
+            <p>实际所得金额: <span *ngIf="resultTwo.two != null">{{resultTwo.two + '份'}}</span></p>
+          </ng-template>
+        </nz-card>
+      </div>
+    </nz-tab>
+    <nz-tab>
+      <ng-template #nzTabHeading>
+        收益购计算器
+      </ng-template>
+      <p class="f-tool-title">适用于计算基金的收益率</p>
+      <form nz-form [formGroup]="toolThree" class="f-tool-form" (ngSubmit)="getThree()">
+        <div nz-form-item>
+          <div nz-form-control [nzValidateStatus]="toolThree.controls.investment">
+            <nz-input formControlName="investment" [nzType]="'number'" [nzPlaceHolder]="'投入本金'" [nzSize]="'large'">
+              <ng-template #addOnAfter>
+                份
+              </ng-template>
+            </nz-input>
+            <div nz-form-explain *ngIf="toolThree.controls.investment.dirty&&toolThree.controls.investment.hasError('required')">Please input your investment!</div>
+          </div>
+        </div>
+        <div nz-form-item>
+          <div nz-form-control [nzValidateStatus]="toolThree.controls.income">
+            <nz-input formControlName="income" [nzType]="'number'" [nzPlaceHolder]="'收回金额'" [nzSize]="'large'">
+              <ng-template #addOnAfter>
+                元
+              </ng-template>
+            </nz-input>
+            <div nz-form-explain *ngIf="toolThree.controls.income.dirty&&toolThree.controls.income.hasError('required')">Please input your income!</div>
+          </div>
+        </div>
+        <div nz-form-item>
+          <div nz-form-control [nzValidateStatus]="toolThree.controls.deadline">
+            <nz-input formControlName="deadline" [nzType]="'number'" [nzPlaceHolder]="'赎回费率'" [nzSize]="'large'">
+              <ng-template #addOnAfter>
+                %
+              </ng-template>
+            </nz-input>
+            <div nz-form-explain *ngIf="toolThree.controls.deadline.dirty&&toolThree.controls.deadline.hasError('required')">Please input your deadline!</div>
+          </div>
+        </div>
+        <div nz-form-item>
+          <div nz-form-control>
+            <button class="f-tool-btn" nz-button [nzType]="'primary'" [nzSize]="'large'">计  算</button>
+          </div>
+        </div>
+      </form>
+      <div class="f-tool-card">
+        <nz-card style="width:300px;">
+          <ng-template #title>
+            计算结果
+          </ng-template>
+          <ng-template #body>
+            <p>持有期总收益率: <span *ngIf="resultThree.one != null">{{resultThree.one + '元'}}</span></p>
+            <p>持有期年化收益率: <span *ngIf="resultThree.two != null">{{resultThree.two + '份'}}</span></p>
+          </ng-template>
+        </nz-card>
+      </div>
+    </nz-tab>
+  </nz-tabset>
+</div>

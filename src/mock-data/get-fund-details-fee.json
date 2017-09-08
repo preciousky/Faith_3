@@ -1,0 +1,22 @@
+{
+	 "fee" : {
+		 "fund_subscribe" : {
+			"categories" : [ "1category_1", "1category_2", "1category_3" ],
+			"values" :  ["1value_1", "1value_2", "1value_3" ]
+		 },
+		 "fund_purchase" : {
+			"categories" : [ "2category_1", "2category_2", "2category_3", "category_4" ],
+			"values" : ["2value_1", "2value_2", "2value_3", "2value_4" ],
+			"limitations" : ["22value_1", "22value_2", "22value_3", "22value_4" ]
+		 
+		 },
+		 "fund_redeem" : {
+			"categories" : [ "3category_1", "3category_2", "3category_3", "3category_4", "3category_5" ],
+			"values" :  ["3value_1", "3value_2", "3value_3", "3value_4", "3value_5" ],
+			"limitations" : ["32value_1", "32value_2"]
+		 },
+		 "others" : {
+			"values" :  ["4value_1", "4value_2", "4value_3"]
+		 }
+	 }
+}

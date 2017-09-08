@@ -1,0 +1,41 @@
+<div class="f-container">
+  <div class="f-main">
+    <div id="hot">
+      <div class="f-main-title">热门评论</div>
+      <forum-card [fNewList]="hotList"></forum-card>
+      <div class="page">
+      <nz-pagination [nzTotal]="hotTotal"  [(nzPageIndex)]="hotPageNo" (nzPageIndexClickChange)="getHotList($event)" [(nzPageSize)]="hotPageSize"></nz-pagination>
+      </div>
+    </div>
+    <div id="different">
+      <div class="f-main-title">众口不一</div>
+      <forum-card [fNewList]="essaysList"></forum-card>
+      <div class="page">
+      <nz-pagination [nzTotal]="essaysTotal" [(nzPageIndex)]="essaysPageNo"  (nzPageIndexClickChange)="getEssaysList($event)"    [(nzPageSize)]="essaysPageSize"></nz-pagination>`
+      </div>
+    </div>
+    <div id="fav">
+      <div class="f-main-title">我的最爱</div>
+      <forum-card [fNewList]="favList"></forum-card>
+      <div [ngStyle]="{'text-align': 'center'}">
+      </div>
+    </div>
+  </div>
+  <div class="f-left">
+    <ul class="f-left-menu" nz-menu [nzMode]="'vertical'">
+      <li nz-menu-item>
+        <a (click)="scorllById('hot')"><i class="anticon anticon-appstore"></i>热门评论</a>
+      </li>
+      <li nz-menu-item>
+        <a (click)="scorllById('different')"><i class="anticon anticon-appstore"></i>众口不一</a>
+      </li>
+      <li nz-menu-item>
+        <a (click)="scorllById('fav')"><i class="anticon anticon-appstore"></i>我的最爱</a>
+      </li>
+      <li nz-menu-item>
+        <a (click)="toEdit()"><i class="anticon anticon-appstore"></i>我要发声</a>
+      </li>
+    </ul>
+  </div>
+  <div class="f-right"></div>
+</div>

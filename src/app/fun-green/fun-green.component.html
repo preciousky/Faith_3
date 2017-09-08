@@ -1,0 +1,55 @@
+<div class="f-container">
+  <div class="f-main">
+    <div id="trend">
+      <div class="f-main-title">绿投走向</div>
+      <div style="margin: 10px 95px;">
+      <img src="./assets/pic/education.png">
+      </div>
+    </div>
+    <div id="risk">
+      <div class="f-main-title">风险教育</div>
+      <fnew [fNewList]="DangerEduList" [routeURL]="'/funGreenDetails'"></fnew>
+      <!--<div [ngStyle]="{'text-align': 'center'}">-->
+        <!--<button class="f-btn-big" nz-button [nzGhost]="false" [nzSize]="'large'">查看全部</button>-->
+      <!--</div>-->
+    </div>
+    <div id="law">
+      <div class="f-main-title">法律法规</div>
+      <fnew [fNewList]="LawsList" [routeURL]="'/funGreenDetails'"></fnew>
+      <!--<div [ngStyle]="{'text-align': 'center'}">-->
+        <!--<button class="f-btn-big" nz-button [nzGhost]="false" [nzSize]="'large'">查看全部</button>-->
+      <!--</div>-->
+    </div>
+    <div id="assert">
+      <div class="f-main-title">投资者维权</div>
+      <div class="f-main-callback">
+        <div>
+          <span>反馈电话:</span>
+          <span>***-********</span>
+        </div>
+        <div>
+          <span>反馈邮箱:</span>
+          <span>***@***.***</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="f-left">
+      <ul class="f-left-menu" nz-menu [nzMode]="'vertical'">
+        <li nz-menu-item>
+          <a (click)="scorllById('trend')"><i class="anticon anticon-appstore"></i>绿投走向</a>
+        </li>
+        <li nz-menu-item>
+          <a (click)="scorllById('risk')"><i class="anticon anticon-appstore"></i>风险教育</a>
+        </li>
+        <li nz-menu-item>
+          <a (click)="scorllById('law')"><i class="anticon anticon-appstore"></i>法律法规</a>
+        </li>
+        <li nz-menu-item>
+            <a (click)="scorllById('assert')"><i class="anticon anticon-appstore"></i>投资者维权</a>
+          </li>
+      </ul>
+  </div>
+  <div class="f-right"></div>
+</div>
+

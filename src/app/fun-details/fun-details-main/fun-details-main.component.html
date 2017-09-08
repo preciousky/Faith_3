@@ -1,0 +1,103 @@
+<div class="f-main-title">产品详情
+<button style="     height: 36px;
+                      width: 36px;
+                      font-size: 17px;"
+  nz-button [nzType]="'danger'" [nzShape]="'circle'" (click)="toCollect()">
+  <i class="anticon anticon-like"></i>
+  </button>
+</div>
+<div nz-row>
+  <div nz-col [nzSpan]="6"  class="details-card">
+      <h1 class="fundName">{{fundDetails.name}}</h1>
+    <h2 class = "infoTitle">单位净值</h2>
+    <div class = "heavyFont">{{ netValue }}￥</div>
+    <h2 class = "infoTitle">涨跌幅</h2>
+    <div  class = "heavyFont">{{ raiPer }}%</div>
+    <button nz-button [nzType]="'primary'" id = "tobuy" (click)="toBuy()">
+      <span>立即购买</span>
+    </button>
+</div>
+  <div nz-col [nzSpan]="18" class="details-card">
+      <nz-tabset  [nzTabPosition]="'left'">
+        <nz-tab>
+          <ng-template #nzTabHeading>
+            实时估值
+          </ng-template>
+          <div id = 'net1' style=" width: 590px; height: 360px; padding-top: 40px;padding-bottom: 20px;"></div>
+        </nz-tab>
+        <nz-tab>
+          <ng-template #nzTabHeading>
+            历史净值
+          </ng-template>
+          <div style="height: 360px;padding: 24px;">
+            <nz-table #nzTable
+                      [nzAjaxData]="log._dataSet"
+                      [nzShowSizeChanger]="true"
+                      [nzLoading]="log._loading"
+                      [nzTotal]="log._total"
+                      [(nzPageIndex)]="log._current"
+                      (nzPageIndexChange)="_refreshData()"
+                      [(nzPageSize)]="log._pageSize"
+                      (nzPageSizeChange)="_refreshData()">
+              <thead nz-thead>
+              <tr>
+                <th nz-th><span>日期</span></th>
+                <th nz-th><span>单位净值</span></th>
+              </tr>
+              </thead>
+              <tbody nz-tbody>
+              <tr nz-tbody-tr *ngFor="let data of nzTable.data">
+                <td nz-td>{{data.date}}</td>
+                <td nz-td>{{data.netvalue}}</td>
+              </tr>
+              </tbody>
+            </nz-table>
+          </div>
+        </nz-tab>
+      </nz-tabset>
+    </div>
+</div>
+<div class="f-main-title">信息披露</div>
+<div id = "details-card-bottom">
+  <nz-tabset>
+    <nz-tab>
+      <ng-template #nzTabHeading>
+        基金档案
+      </ng-template>
+      <div nz-row>
+        <div nz-col [nzSpan]="12">
+          <div style="height:300px;width:450px;padding: 5px 30px" id = 'net2'></div>
+        </div>
+        <div nz-col [nzSpan]="12">
+          <div style="height:300px;width:450px;padding: 5px 30px" id = 'raisePercentagesLine'></div>
+        </div>
+      </div>
+      <div nz-row>
+        <div nz-col [nzSpan]="12">
+          <div id = 'belongings' style="width:500px;height: 200px;padding: 5px 30px"></div>
+        </div>
+        <div nz-col [nzSpan]="12">
+          <div id = 'productions' style="width:500px;height: 200px;padding: 5px 30px"></div>
+        </div>
+      </div>
+    </nz-tab>
+    <nz-tab>
+      <ng-template #nzTabHeading>
+        概况
+      </ng-template>
+      <fun-details-general></fun-details-general>
+    </nz-tab>
+    <nz-tab>
+      <ng-template #nzTabHeading>
+        费率
+      </ng-template>
+      <fun-details-fee></fun-details-fee>
+    </nz-tab>
+    <nz-tab>
+      <ng-template #nzTabHeading>
+        财报
+      </ng-template>
+      <fun-details-forms></fun-details-forms>
+    </nz-tab>
+  </nz-tabset>
+</div>

@@ -1,0 +1,73 @@
+<div class="f-container">
+    <div class="f-main">
+      <div id="reco">
+        <div class="f-main-title">推荐热门产品</div>
+        <fcard [fCardList]="fCardListRecommendation"></fcard>
+        <div [ngStyle]="{'text-align': 'center'}">
+          <button class="f-btn-big" nz-button [nzGhost]="false" [nzSize]="'large'" (click)="scorllById('lv')">查看全部</button>
+        </div>
+      </div>
+
+      <div id="soon">
+        <div class="f-main-title">即将上线产品</div>
+        <fcard [fCardList]="fCardListSoon"></fcard>
+        <div [ngStyle]="{'text-align': 'center'}">
+          <button class="f-btn-big" nz-button [nzGhost]="false" [nzSize]="'large'" (click)="scorllById('lv')">查看全部</button>
+        </div>
+      </div>
+      <div id="lv">
+        <div class="f-main-title">LV绿色产业基金</div>
+        <div class="f-lv-table">
+          <nz-table #nzTable
+                    [nzAjaxData]="_dataSet"
+                    [nzShowSizeChanger]="true"
+                    [nzLoading]="_loading"
+                    [nzTotal]="_total"
+                    [(nzPageIndex)]="_current"
+                    (nzPageIndexChange)="_refreshData()"
+                    [(nzPageSize)]="_pageSize"
+                    (nzPageSizeChange)="_refreshData()">
+            <thead nz-thead>
+            <tr>
+              <th nz-th><span>基金</span></th>
+              <th nz-th><span>单位净值</span></th>
+              <th nz-th><span>净值日期</span></th>
+              <th nz-th><span>成立日期</span></th>
+              <th nz-th><span>近一年收益率</span></th>
+              <th nz-th><span>成立以来收益率</span></th>
+              <th nz-th><span></span></th>
+            </tr>
+            </thead>
+            <tbody nz-tbody>
+            <tr nz-tbody-tr *ngFor="let data of nzTable.data">
+              <td nz-td>{{data.name}}</td>
+              <td nz-td>{{data.lastest_netvalue}}</td>
+              <td nz-td>{{data.lastest_netvalue_date}}</td>
+              <td nz-td>{{data.date}}</td>
+              <td nz-td>{{data.oneyear_profit_rate}}</td>
+              <td nz-td>{{data.total_profit_rate}}</td>
+              <td nz-td><a (click)="toDetails(data.fund_id)" >了解更多</a></td>
+            </tr>
+            </tbody>
+          </nz-table>
+        </div>
+        <div [ngStyle]="{'text-align': 'center'}">
+        </div>
+      </div>
+    </div>
+
+    <div class="f-left">
+        <ul class="f-left-menu" nz-menu [nzMode]="'vertical'">
+          <li nz-menu-item>
+            <a (click)="scorllById('reco')"><i class="anticon anticon-appstore"></i>推荐产品</a>
+          </li>
+          <li nz-menu-item>
+            <a (click)="scorllById('soon')"><i class="anticon anticon-appstore"></i>即将上线</a>
+          </li>
+          <li nz-menu-item>
+            <a (click)="scorllById('lv')"><i class="anticon anticon-appstore"></i>LV绿色产业基金</a>
+          </li>
+        </ul>
+    </div>
+    <div class="f-right"></div>
+</div>

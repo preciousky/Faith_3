@@ -56,6 +56,8 @@ export class LoginModalComponent implements OnInit {
             this.subject.destroy('onCancel');
           }else if (d.code === '6') {
               alert('密码错误！');
+          }else {
+            alert('登录失败with:code-' + d.code);
           }
           // TODO continue
         }, error => {

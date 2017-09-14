@@ -48,7 +48,7 @@ export class HostComponent implements OnInit {
     // TODO HTTP for userInfo
     const body = JSON.stringify({
       // TODO load data
-      'user_id': this.userId
+      user_id: this.userId
     });
     // TODO update here
     // this.httpPostService.getReponseData('get-user-assets-info', body)

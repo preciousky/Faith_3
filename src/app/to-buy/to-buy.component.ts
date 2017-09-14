@@ -51,7 +51,7 @@ export class ToBuyComponent implements OnInit {
 
   getBankcards() {
     const body = JSON.stringify({
-      userId: this.userId
+      user_id: this.userId
     });
     // TODO update here
     // this.httpPostService.getReponseData('get-bankcards', body)
@@ -99,11 +99,11 @@ export class ToBuyComponent implements OnInit {
     // TODO http
     const body = JSON.stringify({
       // TODO load data
-      userId: this.userId,
+      user_id: this.userId,
       pay_mode: this.toBuyForm.controls['radio_button'].value, // 如果是1 下面的bankcard_no就没有用了
       bankcard_no: this.toBuyForm.controls['radio_group'].value,
       expense: this.expense, // 是买的基金的金额 不包括手续费
-      fundId: this.fundId
+      fund_id: this.fundId
     });
     // TODO update here
     // this.httpPostService.getReponseData('', body)

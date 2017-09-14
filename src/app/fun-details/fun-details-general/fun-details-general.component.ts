@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {HttpPostService} from '../../service/http-post.service';
 interface  GeneralDetails {
   name?: string;
@@ -25,6 +25,7 @@ interface  GeneralDetails {
 })
 export class FunDetailsGeneralComponent implements OnInit {
   details: GeneralDetails;
+  @Input() fundId;
   constructor( public httpPostService: HttpPostService) {
     this.details = {};
   }
@@ -34,7 +35,7 @@ export class FunDetailsGeneralComponent implements OnInit {
   onTest() {
     // 完成 fund 信息的赋值
     const body = JSON.stringify({
-
+      fund_id: this.fundId
     });
     // this.httpPostService.getReponseData('get-fund-details-general',body)
     this.httpPostService.getReponseTestDataByPost('get-fund-details-general', body)

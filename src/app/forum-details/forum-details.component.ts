@@ -50,16 +50,17 @@ export class ForumDetailsComponent implements OnInit {
 }
   ngOnInit() {
     this._refreshData();
-    this.getEssay();
     this.route.params.subscribe(params => {
       this.essayId = params['_id'];
     });
+    this.getEssay();
   }
 
   _refreshData = () => {
     this._loading = true;
     const body = JSON.stringify({
       // TODO load data
+      essay_id: this.essayId,
       page_no: this._current,
       page_size: this._pageSize
     });

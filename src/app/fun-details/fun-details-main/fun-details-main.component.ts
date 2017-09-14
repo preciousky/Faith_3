@@ -232,6 +232,7 @@ export class FunDetailsMainComponent implements OnInit {
   _refreshData = () => {
     this.log._loading = true;
     const body = JSON.stringify({
+      fund_id: this.fundId,
       page_no: this.log._current,
       page_size: this.log._pageSize,
     });

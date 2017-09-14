@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {HttpPostService} from '../../service/http-post.service';
 
 @Component({
@@ -7,12 +7,12 @@ import {HttpPostService} from '../../service/http-post.service';
   styleUrls: ['./fun-details-forms.component.scss']
 })
 export class FunDetailsFormsComponent implements OnInit {
-
+  @Input() fundId;
   constructor(private httpPostService: HttpPostService) { }
 
   ngOnInit() {
     const body = JSON.stringify({
-      // TODO load data
+      fund_id: this.fundId
     });
     // TODO update here
     // this.httpPostService.getReponseData('get-fund-details-forms', body)

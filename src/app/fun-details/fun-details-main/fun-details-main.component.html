@@ -85,19 +85,19 @@
       <ng-template #nzTabHeading>
         概况
       </ng-template>
-      <fun-details-general></fun-details-general>
+      <fun-details-general [fundId]="fundId"></fun-details-general>
     </nz-tab>
     <nz-tab>
       <ng-template #nzTabHeading>
         费率
       </ng-template>
-      <fun-details-fee></fun-details-fee>
+      <fun-details-fee [fundId]="fundId"></fun-details-fee>
     </nz-tab>
     <nz-tab>
       <ng-template #nzTabHeading>
         财报
       </ng-template>
-      <fun-details-forms></fun-details-forms>
+      <fun-details-forms [fundId]="fundId"></fun-details-forms>
     </nz-tab>
   </nz-tabset>
 </div>

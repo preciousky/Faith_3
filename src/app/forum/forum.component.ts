@@ -93,7 +93,7 @@ export class ForumComponent implements OnInit {
   }
   getFavList() {
     const body = JSON.stringify({
-      userId: this.userId
+      user_id: this.userId
     });
     // TODO update here
     // this.httpPostService.getReponseData('', body)

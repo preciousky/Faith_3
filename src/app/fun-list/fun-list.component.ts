@@ -39,7 +39,7 @@ export class FunListComponent implements OnInit {
   }
   setRecommendation() {
     const body = JSON.stringify({
-      'num': '3'
+      num: '3'
     });
     // TODO update here
     // this.httpPostService.getReponseData('get-recommendations', body)
@@ -55,7 +55,7 @@ export class FunListComponent implements OnInit {
 
   setSoon() {
     const body = JSON.stringify({
-      'num': '3'
+      num: '3'
     });
     // TODO update here
     // this.httpPostService.getReponseData('get-soon-funds', body)

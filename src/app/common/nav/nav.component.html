@@ -59,7 +59,7 @@
   </ul>
   <form  class="f-head-form" nz-form [nzLayout]="'inline'" [formGroup]="searchForm" (ngSubmit)="_submitSearch()">
     <div style="margin-right: 30px; font-weight:100" nz-form-item>
-      <div *ngIf="userId != -1">
+      <div *ngIf="userId != -1" style="margin-top: -2px;">
         <p>欢迎，{{username}}</p>
       </div>
     </div>
@@ -68,7 +68,7 @@
   </div>
     <div id="hostDiv" *ngIf="userId != -1" nz-form-item>
       <span><button style="size-weight:900" [nzShape]="'circle'" [nzType]="'primary'" nz-button (click)="toHost()"><i class="anticon anticon-user"></i></button></span>
-      <button nz-button (click) = "tologout()" [nzSize]="'small'" style="background-color: transparent">注销</button>
+      <a (click) = "tologout()" >注销</a>
     </div>
     <div nz-form-item>
       <div nz-form-control>

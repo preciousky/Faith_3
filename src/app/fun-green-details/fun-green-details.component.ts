@@ -41,7 +41,7 @@ export class FunGreenDetailsComponent implements OnInit {
 
   getDetails() {
     const body = JSON.stringify({
-      new_id: this.essayId
+      education_id: this.essayId
     // TODO load data
   });
     // TODO update here

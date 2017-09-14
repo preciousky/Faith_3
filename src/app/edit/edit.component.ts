@@ -39,7 +39,7 @@ export class EditComponent implements OnInit {
     const body = JSON.stringify({
       title: this.validateForm.controls['title'].value.toString(),
       cont: this.validateForm.controls['essay'].value.toString(),
-      from: this.carrierService.userId
+      user_id: this.carrierService.userId
     });
     // TODO update here
     // this.httpPostService.getReponseData('', body)

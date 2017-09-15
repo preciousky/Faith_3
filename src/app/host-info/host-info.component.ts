@@ -85,8 +85,7 @@ export class HostInfoComponent implements OnInit {
     'address': this.user.address
   });
     // TODO update here
-    // this.httpPostService.getReponseData('update-basic-info', body)
-    this.httpPostService.getReponseTestDataByPost('update-basic-info', body)
+    this.httpPostService.getReponseDataByPut('users/' + this.userId, body)
       .subscribe(data => {
         const d = data.json();
         if (d.code === '1') {
@@ -103,7 +102,7 @@ export class HostInfoComponent implements OnInit {
     });
     // TODO update here
     // this.httpPostService.getReponseData('get-user-setting', body)
-    this.httpPostService.getReponseTestDataByPost('get-user-settings', body)
+    this.httpPostService.getReponseDataByGet('users/' + this.userId + '?info_type=personal')
       .subscribe(data => {
         const d = data.json();
         // TODO success

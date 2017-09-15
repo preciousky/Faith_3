@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
     });
     // TODO update here
     // this.httpPostService.getReponseData('get-recommendations', body)
-    this.httpPostService.getReponseTestDataByPost('get-recommendations', body)
+    this.httpPostService.getReponseDataByGet('funds?info_type=recommendations')
       .subscribe(data => {
         // TODO success
         this.fCardListRecommendation = data.json().funds;

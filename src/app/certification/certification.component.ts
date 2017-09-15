@@ -76,7 +76,7 @@ export class CertificationComponent implements OnInit {
         'tcode': this.CertificationForm.value.tcode,
       });
       // this.httpPostService.getReponseData('certification', body)
-      this.httpPostService.getReponseTestDataByPost('certification', body)
+      this.httpPostService.getReponseDataByPost('users/certificate', body)
         .subscribe(data => {
         const d = data.json();
         if ( d.code === '1') {

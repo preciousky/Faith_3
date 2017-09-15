@@ -47,7 +47,7 @@ export class LoginModalComponent implements OnInit {
       });
       // TODO update here
       // this.httpPostService.getReponseData('login', body)
-      this.httpPostService.getReponseTestDataByPost('login', body)
+      this.httpPostService.getReponseDataByPost('users/signin', body)
         .subscribe(data => {
           const d = data.json();
           // TODO success

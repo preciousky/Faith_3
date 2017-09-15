@@ -53,7 +53,7 @@ export class FunDetailsMainComponent implements OnInit {
     });
     // TODO update here
     // this.httpPostService.getReponseData('get-fund-detail', body)
-    this.httpPostService.getReponseTestDataByPost('get-fund-detail', body)
+    this.httpPostService.getReponseDataByGet('funds/' + this.fundId + '?info_type=financial')
       .subscribe(data => {
         const d = data.json();
         this.fundDetails = d;
@@ -237,9 +237,10 @@ export class FunDetailsMainComponent implements OnInit {
       page_size: this.log._pageSize,
     });
     // this.httpPostService.getReponseData(this._current, this._pageSize, 'netvalue-log')
-    this.httpPostService.getReponseTestDataByPost('netvalue-log', body)
+    this.httpPostService.getReponseDataByGet('funds/' + this.fundId + '/netvalues' + '?page=' + this.log._current + '&per_page=' + this.log._pageSize)
       .subscribe(data => {
         const d = data.json();
+        console.log(d);
         this.log._dataSet = d.netvalues_log;
         this.log._total = d.log_num;
         this.log._loading = false;
@@ -257,7 +258,7 @@ export class FunDetailsMainComponent implements OnInit {
     });
     // TODO update here
     // this.httpPostService.getReponseData('forum-essay-collect', body)
-    this.httpPostService.getReponseTestDataByPost('fund-collect', body)
+    this.httpPostService.getReponseDataByPost('users/' +  this.getUserId() + '/collections', body)
       .subscribe(data => {
         const d = data.json();
         if (d.code.toString() === '1') {

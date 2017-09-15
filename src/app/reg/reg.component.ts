@@ -69,7 +69,7 @@ export class RegComponent implements OnInit {
             'password': this.RegForm.value.password
           });
           // this.httpPostService.getReponseData('certification', body)
-          this.httpPostService.getReponseTestDataByPost('enroll', body)
+          this.httpPostService.getReponseDataByPost('users/signup', body)
             .subscribe(data => {
               const d = data.json();
               if ( d.code === '1') {

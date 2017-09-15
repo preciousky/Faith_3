@@ -51,8 +51,7 @@ export class HostComponent implements OnInit {
       user_id: this.userId
     });
     // TODO update here
-    // this.httpPostService.getReponseData('get-user-assets-info', body)
-    this.httpPostService.getReponseTestDataByPost('get-user-assets-info', body)
+    this.httpPostService.getReponseDataByGet('users/' + this.userId + '?info_type=asset')
       .subscribe(data => {
         const d = data.json();
         this.user = d.user;
@@ -87,7 +86,7 @@ export class HostComponent implements OnInit {
       user_id: this.userId
     });
     // this.httpPostService.getReponseData(this._current, this._pageSize, 'netvalue-log')
-    this.httpPostService.getReponseTestDataByPost('get-user-trade-log', body)
+    this.httpPostService.getReponseDataByGet('users/' + this.userId + '/trades?page=' + this.t_current + '&per_page=' + this.t_pageSize)
       .subscribe((tdata: any) => {
         const td = tdata.json();
         this.t_dataSet = td.trade_log;
@@ -103,7 +102,7 @@ export class HostComponent implements OnInit {
       user_id: this.userId
     });
     // this.httpPostService.getReponseData(this._current, this._pageSize, 'netvalue-log')
-    this.httpPostService.getReponseTestDataByPost('get-user-owned-fund', body)
+    this.httpPostService.getReponseDataByGet('users/' + this.getUserId() + '?info_type=bought_funds')
       .subscribe((odata: any) => {
         const od = odata.json();
         this.o_dataSet = od.owned_funds;

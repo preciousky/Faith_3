@@ -43,7 +43,7 @@ export class FunListComponent implements OnInit {
     });
     // TODO update here
     // this.httpPostService.getReponseData('get-recommendations', body)
-    this.httpPostService.getReponseTestDataByPost('get-recommendations', body)
+    this.httpPostService.getReponseDataByGet('funds?info_type=recommendations')
       .subscribe(data => {
       // TODO success
         this.fCardListRecommendation = data.json().funds;
@@ -59,7 +59,7 @@ export class FunListComponent implements OnInit {
     });
     // TODO update here
     // this.httpPostService.getReponseData('get-soon-funds', body)
-    this.httpPostService.getReponseTestDataByPost('get-soon-funds', body)
+    this.httpPostService.getReponseDataByGet('funds?info_type=soon')
       .subscribe(data => {
         // TODO success
         this.fCardListSoon = data.json().funds;
@@ -92,7 +92,7 @@ export class FunListComponent implements OnInit {
       page_size: this._pageSize
     });
     // this.httpPostService.getReponseData(this._current, this._pageSize, 'get-fund-list')
-    this.httpPostService.getReponseTestDataByPost('get-fund-list', body)
+    this.httpPostService.getReponseDataByGet('funds?page=' + this._current + '&per_page=' + this._pageSize)
       .subscribe(data => {
         const d = data.json();
         this._dataSet = d.funds;

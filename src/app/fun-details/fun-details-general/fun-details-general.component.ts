@@ -38,7 +38,7 @@ export class FunDetailsGeneralComponent implements OnInit {
       fund_id: this.fundId
     });
     // this.httpPostService.getReponseData('get-fund-details-general',body)
-    this.httpPostService.getReponseTestDataByPost('get-fund-details-general', body)
+    this.httpPostService.getReponseDataByGet('funds/' + this.fundId + '?info_type=basic')
       .subscribe(data => {
         const d = data.json();
         this.details = d.fund;

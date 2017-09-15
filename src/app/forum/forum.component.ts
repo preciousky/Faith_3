@@ -30,6 +30,7 @@ export class ForumComponent implements OnInit {
   }
 
   ngOnInit() {
+    alert('论坛功能尚未开发完成，敬请期待');
     this.userId = this.carrierService.userId;
     this.getHotList(1);
     this.getEssaysList(1);

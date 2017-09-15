@@ -69,7 +69,7 @@ export class QuestionnaireComponent implements OnInit {
                       this.questionnaireForm.value.q18]
       });
       // this.httpPostService.getReponseData('questionnaire', body)
-      this.httpPostService.getReponseTestDataByPost('questionnaire', body)
+      this.httpPostService.getReponseDataByPost('users/consult', body)
         .subscribe(data => {
           const d = data.json();
           if ( d.code === '1') {

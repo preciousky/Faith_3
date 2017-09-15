@@ -54,8 +54,7 @@ export class ToBuyComponent implements OnInit {
       user_id: this.userId
     });
     // TODO update here
-    // this.httpPostService.getReponseData('get-bankcards', body)
-    this.httpPostService.getReponseTestDataByPost('get-bankcards', body)
+    this.httpPostService.getReponseDataByGet('users/' + this.userId + '/bankcards')
       .subscribe(data => {
         const d = data.json();
 
@@ -80,7 +79,7 @@ export class ToBuyComponent implements OnInit {
       });
       // TODO update here
       // this.httpPostService.getReponseData('', body)
-      this.httpPostService.getReponseTestDataByPost('get-fund-fee', body)
+      this.httpPostService.getReponseDataByGet('funds/poundage?fund_id=' + this.fundId + '&cost=' + this.expense)
         .subscribe(data => {
           const d = data.json();
           this.fee = d.fee;
@@ -107,7 +106,7 @@ export class ToBuyComponent implements OnInit {
     });
     // TODO update here
     // this.httpPostService.getReponseData('', body)
-    this.httpPostService.getReponseTestDataByPost('to-buy-fund', body)
+    this.httpPostService.getReponseDataByPost('users/' + this.userId + '/trades', body)
       .subscribe(data => {
         const d = data.json();
          this.resultCode = (d.code === '1') ? 1 : -1;

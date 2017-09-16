@@ -88,7 +88,7 @@ export class HostInfoComponent implements OnInit {
     this.httpPostService.getReponseDataByPut('users/' + this.userId, body)
       .subscribe(data => {
         const d = data.json();
-        if (d.code === '1') {
+        if (d.code === 1) {
           alert('信息修改成功');
         }
       }, error => {

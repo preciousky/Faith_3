@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpPostService} from '../service/http-post.service';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 interface ShowCard {
-  name: String;
-  id: number;
-  src: String;
-  info: String;
+  name: string;
+  fund_id: number;
+  pic: string;
+  reason: string;
+  forecast_profit_rate: string;
 }
 
 @Component({
@@ -33,19 +34,17 @@ export class HomeComponent implements OnInit {
   }
 
   setRecommendation() {
-    const body = JSON.stringify({
-      'num': '3'
-    });
-    // TODO update here
-    // this.httpPostService.getReponseData('get-recommendations', body)
     this.httpPostService.getReponseDataByGet('funds?info_type=recommendations')
       .subscribe(data => {
-        // TODO success
         this.fCardListRecommendation = data.json().funds;
+        console.log(this.fCardListRecommendation);
+        this.fCardListRecommendation.forEach(function (e) {
+          e.pic = '1';
+        });
+
       }, error => {
-        // TODO fail
-        // alert('http失败');
-      } );
+        console.log(error.message);
+      });
   }
 
   toAllFunds() {

@@ -2,14 +2,22 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {HttpPostService} from '../service/http-post.service';
 
+interface ShowCard {
+  name: string;
+  fund_id: number;
+  pic: string;
+  reason: string;
+  forecast_profit_rate: string;
+}
+
 @Component({
   selector: 'fun-list',
   templateUrl: './fun-list.component.html',
   styleUrls: ['./fun-list.component.scss']
 })
 export class FunListComponent implements OnInit {
-  fCardListRecommendation: Array<Object>;
-  fCardListSoon: Array<Object>;
+  fCardListRecommendation: Array<ShowCard>;
+  fCardListSoon: Array<ShowCard>;
   tableData: Array<Object>;
   // remote loading
   _current: number;
@@ -47,6 +55,9 @@ export class FunListComponent implements OnInit {
       .subscribe(data => {
       // TODO success
         this.fCardListRecommendation = data.json().funds;
+        this.fCardListRecommendation.forEach(function (e) {
+          e.pic = '1';
+        });
     }, error => {
       // TODO fail
       // alert('http失败');
@@ -54,15 +65,13 @@ export class FunListComponent implements OnInit {
   }
 
   setSoon() {
-    const body = JSON.stringify({
-      num: '3'
-    });
-    // TODO update here
-    // this.httpPostService.getReponseData('get-soon-funds', body)
     this.httpPostService.getReponseDataByGet('funds?info_type=soon')
       .subscribe(data => {
         // TODO success
         this.fCardListSoon = data.json().funds;
+        this.fCardListSoon.forEach(function (e) {
+          e.pic = '1';
+        });
       }, error => {
         // TODO fail
         // alert('http失败');
@@ -86,12 +95,6 @@ export class FunListComponent implements OnInit {
 
   _refreshData = () => {
     this._loading = true;
-    const body = JSON.stringify({
-      // TODO load data
-      page_no: this._current,
-      page_size: this._pageSize
-    });
-    // this.httpPostService.getReponseData(this._current, this._pageSize, 'get-fund-list')
     this.httpPostService.getReponseDataByGet('funds?page=' + this._current + '&per_page=' + this._pageSize)
       .subscribe(data => {
         const d = data.json();

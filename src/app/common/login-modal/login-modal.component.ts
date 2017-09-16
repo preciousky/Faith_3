@@ -51,10 +51,10 @@ export class LoginModalComponent implements OnInit {
         .subscribe(data => {
           const d = data.json();
           // TODO success
-          if (d.code ===  '1') {
+          if (d.code ===  1) {
             this.subject.next({code: 1, user_id: d.user_id, username: this.LoginForm.value.username});
             this.subject.destroy('onCancel');
-          }else if (d.code === '6') {
+          }else if (d.code === 6) {
               alert('密码错误！');
           }else {
             alert('登录失败with:code-' + d.code);

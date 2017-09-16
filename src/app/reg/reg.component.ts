@@ -72,7 +72,8 @@ export class RegComponent implements OnInit {
           this.httpPostService.getReponseDataByPost('users/signup', body)
             .subscribe(data => {
               const d = data.json();
-              if ( d.code === '1') {
+              console.log('signup' + d.code);
+              if ( d.code === 1) {
                 alert('注册成功！可以进行问卷测试！');
                 this.userId = d.user_id;
                 this.router.navigate(['/questionnaire', this.userId ]);

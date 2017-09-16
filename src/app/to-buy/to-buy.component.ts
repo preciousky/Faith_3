@@ -53,32 +53,23 @@ export class ToBuyComponent implements OnInit {
     const body = JSON.stringify({
       user_id: this.userId
     });
-    // TODO update here
     this.httpPostService.getReponseDataByGet('users/' + this.userId + '/bankcards')
       .subscribe(data => {
         const d = data.json();
-
-        // TODO success
+        console.log(d);
         this.bankcards = d;
       }, error => {
-        // TODO fail
-        // alert('http失败');
+        console.log('failed in getBankcards() function');
       } );
   }
 
   next1_2() {
     if (this.toBuyForm.controls['radio_button'].value === 2 && this.toBuyForm.controls['radio_group'].value === -1) {
       alert('您还没有选择银行卡！');
-    }else {
+    } else {
       this.current = 1;
       this.expense = this.toBuyForm.controls['input_number'].value;
-      //  http to get the fee
-      const body = JSON.stringify({
-        fund_id: this.fundId,
-        expense: this.expense
-      });
-      // TODO update here
-      // this.httpPostService.getReponseData('', body)
+      console.log(this.fundId);
       this.httpPostService.getReponseDataByGet('funds/poundage?fund_id=' + this.fundId + '&cost=' + this.expense)
         .subscribe(data => {
           const d = data.json();
@@ -109,7 +100,7 @@ export class ToBuyComponent implements OnInit {
     this.httpPostService.getReponseDataByPost('users/' + this.userId + '/trades', body)
       .subscribe(data => {
         const d = data.json();
-         this.resultCode = (d.code === '1') ? 1 : -1;
+         this.resultCode = (d.code === 1) ? 1 : -1;
          this.emitResult();
         return true;
       }, error => {

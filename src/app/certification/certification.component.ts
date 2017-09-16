@@ -79,12 +79,12 @@ export class CertificationComponent implements OnInit {
       this.httpPostService.getReponseDataByPost('users/certificate', body)
         .subscribe(data => {
         const d = data.json();
-        if ( d.code === '1') {
+        if ( d.code === 1) {
           alert('实名认证成功！可以选购基金！');
           this.router.navigate(['/funlist', 'reco']) ;
         }
       }, error => {
-        // alert('http失败');
+          alert('认证失败');
       } );
     }
   }

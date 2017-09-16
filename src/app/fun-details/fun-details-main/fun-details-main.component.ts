@@ -51,20 +51,24 @@ export class FunDetailsMainComponent implements OnInit {
     const body = JSON.stringify({
       fund_id : this.fundId
     });
-    // TODO update here
-    // this.httpPostService.getReponseData('get-fund-detail', body)
     this.httpPostService.getReponseDataByGet('funds/' + this.fundId + '?info_type=financial')
       .subscribe(data => {
         const d = data.json();
         this.fundDetails = d;
-        console.log(this.fundDetails);
-        this.netValue = this.fundDetails.netvalues[3];
-        this.raiPer = this.fundDetails.raise_percentages[3];
+        this.netValue = this.fundDetails.netvalues[3].toFixed(3);
+        this.raiPer = this.fundDetails.raise_percentages[3].toFixed(3);
+
+        // set the number
+        for (let i = 0; i < 5; i++) {
+          this.fundDetails.profit_rates[i] = this.fundDetails.profit_rates[i].toFixed(3);
+        }
+        for (let i = 0; i < 5; i++) {
+          this.fundDetails.raise_percentages[i] = this.fundDetails.raise_percentages[i].toFixed(3);
+        }
+
         this.setCharts();
-        // TODO success
       }, error => {
-        // TODO fail
-        // alert('http失败');
+        console.log('getFundDetails() error!');
       } );
   }
   getFundID() {

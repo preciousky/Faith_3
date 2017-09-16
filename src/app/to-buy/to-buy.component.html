@@ -53,17 +53,12 @@
           </div>
         </div>
 
-
-
-
-
-
           <div nz-row nz-form-item *ngIf="this.toBuyForm.controls[ 'radio_button' ].value === 2 || fundId === '-2'">
             <div nz-form-control nz-col style="margin: 0 100px;">
               <nz-radio-group formControlName="radio_group">
-            <div  class="bankcards" nz-radio  nz-col *ngFor="let card of bankcards.bankcards" [nzSpan]="11"  [nzValue]= card.bankcard_no >
+            <div  class="bankcards" nz-radio  nz-col *ngFor="let card of bankcards.bankcards" [nzSpan]="11"  [nzValue]= card.bk_id >
               <div nz-row class = 'myrow' style="margin: 0 0px ;">
-                <div nz-col [nzSpan]="14" class = 'value bankcardNo'>{{card.bankcard_no}}</div>
+                <div nz-col [nzSpan]="14" class = 'value bankcardNo'>{{card.number}}</div>
               </div >
               <div class = 'myrow'>
                 <div class = 'key' nz-col [nzSpan]="8">开户银行：</div>
@@ -81,10 +76,6 @@
               </nz-radio-group>
             </div>
           </div>
-
-
-
-
         <div nz-form-item nz-row style="margin-bottom:8px;">
           <div nz-form-control nz-col [nzSpan]="14" [nzOffset]="6">
             <label nz-checkbox formControlName="agree">

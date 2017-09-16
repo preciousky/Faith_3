@@ -72,7 +72,8 @@ export class QuestionnaireComponent implements OnInit {
       this.httpPostService.getReponseDataByPost('users/consult', body)
         .subscribe(data => {
           const d = data.json();
-          if ( d.code === '1') {
+          console.log(d.code);
+          if ( d.code === 1) {
             alert('问卷测试结束，您是' + d.description + '类型的客户，您现在可以登入平台了');
             this.router.navigate(['/']);
           }

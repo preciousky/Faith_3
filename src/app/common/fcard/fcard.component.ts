@@ -9,7 +9,6 @@ interface ShowCard {
   forecast_profit_rate: string;
 }
 
-
 @Component({
   selector: 'fcard',
   templateUrl: './fcard.component.html',

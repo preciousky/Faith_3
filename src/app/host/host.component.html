@@ -1,140 +1,132 @@
 <div class="f-container">
   <div class="f-main">
     <div class = "host-content">
-    <div nz-row>
-      <div nz-col [nzSpan]="4">
+      <div nz-row>
+        <div nz-col [nzSpan]="4">
 
-        <div class="f-main-title">
-          <span>我的首页</span>
-        </div>
-      </div>
-      <div nz-col [nzSpan]="3">
-        <button nz-button [nzSize]="'small'" (click)="toHostInfo()" style="margin-top: 10px;border: solid 1px rgba(134, 134, 241, 0.44);padding-bottom: 1px;">
-          <i class="anticon anticon-setting"></i><span>设置</span>
-        </button>
-      </div>
-      <div nz-col [nzSpan]="6" >
-        <button (click)="user.is_auth = !user.is_auth ">
-          test isAuth
-        </button>
-      </div>
-    </div >
-      <div class="f-sub-title">总资产</div>
-      <div  class = "host-parts">
-        <div nz-row >
-          <div *ngIf="user.is_auth" nz-col [nzSpan]="5" class="subParts">
-            <h2>总资产</h2>
-            <p class="heavyFont">{{user.total_asset}}￥</p>
-            <p>当前总收益为{{user.total_profit}}元</p>
-          </div>
-          <div *ngIf="user.is_auth" nz-col [nzSpan]="5" class="subParts">
-            <h2>基金产品</h2>
-            <p class="heavyFont">{{user.funds_netvalue}}￥</p>
-          </div>
-          <div *ngIf="!user.is_auth"nz-col [nzSpan]="10" class="subParts">
-            <h2>你还没有实名认证</h2>
-            <p>立即实名认证，轻松管理自己的账号资产</p>
-            <button nz-button [nzType]="'primary'" (click) = 'toCertificate()'>立即实名认证</button>
-          </div>
-          <div nz-col [nzSpan]="14"  class="subParts">
-            <h2>储蓄罐</h2><span>众宜精选货币基金（工银现金货币(000677)）</span>
-            <div nz-row >
-              <div nz-col [nzSpan]="14" class = "dsp">
-                <p>-活期储蓄,随存随取,购买基金-方便</p>
-                <p>-货币基金,收益保障,近似复利-稳赢</p>
-                <p>-随时随地,极速到账,7*24小时-随取</p>
-            </div>
-              <div nz-col [nzSpan]="8">
-                <p  class="heavyFont" style=" margin: 0;  font-size: 30px;">{{savingRate}}%</p>
-                <p>{{savingDate}}收益率</p>
-                <button nz-button [nzType]="'primary'" style="margin-top:15px" (click)="toSave()">
-                  <i class="anticon anticon-wallet" ></i>
-                  <span>存钱</span></button>
-                <p>您已经存了{{user.savings}}元</p>
-            </div>
-            </div>
-
+          <div class="f-main-title">
+            <span>我的首页</span>
           </div>
         </div>
-      </div>
-    <div class="f-sub-title">我的持仓</div>
-      <div class = "host-parts">
-        <nz-table #nzoTable
-                  [nzLoading]="o_loading"
-                  [nzAjaxData]="o_dataSet"
-                  [nzTotal]="o_total"
-                  [(nzPageIndex)]="o_current"
-                  (nzPageIndexChange)="_orefreshData()"
-                  [(nzPageSize)]="o_pageSize">
-          <thead nz-thead>
-          <tr>
-            <th><span>基金名称</span></th>
-            <th><span>持有份额</span></th>
-            <th><span>可用份额</span></th>
-            <th><span>最新净值</span></th>
-            <th><span>交易卡号</span></th>
-            <th><span>基金状态</span></th>
-            <th><span></span></th>
-          </tr>
-          </thead>
-          <tbody nz-tbody>
-          <tr nz-tbody-tr *ngFor="let data of nzoTable.data">
-            <td nz-td>{{data.fund_name}}</td>
-            <td nz-td>{{data.ship_share}}</td>
-            <td nz-td>{{data.ship_vaild_share}}</td>
-            <td nz-td>{{data.fund_last_netvalue}}</td>
-            <td nz-td>{{data.ship_bankcard_no}}</td>
-            <td nz-td>{{data.ship_state}}</td>
-            <td nz-td><a (click)="toDetails(data.fund_id)">详情</a></td>
-          </tr>
-          </tbody>
-        </nz-table>
-      </div>
-    <div class="f-sub-title">交易记录</div>
-      <div class = "host-parts">
-        <nz-table #nztTable
-                  [nzAjaxData]="t_dataSet"
-                  [nzLoading]="t_loading"
-                  [nzTotal]="t_total"
-                  [(nzPageIndex)]="t_current"
-                  (nzPageIndexChange)="_trefreshData()"
-                  [(nzPageSize)]="t_pageSize"
-                  (nzPageSizeChange)="_trefreshData()">
-          <thead nz-thead>
-          <tr>
-            <th><span>操作日期</span></th>
-            <th><span>操作时间</span></th>
-            <th><span>基金代码</span></th>
-            <th><span>基金名称</span></th>
-            <th><span>交易卡号</span></th>
-            <th><span>操作</span></th>
-            <th><span>成交金额</span></th>
-          </tr>
-          </thead>
-          <tbody nz-tbody>
-          <tr nz-tbody-tr *ngFor="let data of nztTable.data">
-            <td nz-td>{{data.ship_date}}</td>
-            <td nz-td>{{data.ship_time}}</td>
-            <td nz-td>{{data.fundcode}}</td>
-            <td nz-td>{{data.fund_name}}</td>
-            <td nz-td>{{data.ship_bankcard_no}}</td>
-            <td nz-td>{{data.operation === 'in'? '买入':'卖出'}}</td>
-            <td nz-td>{{data.ship_turnover}}</td>
-          </tr>
-          </tbody>
-        </nz-table>
-        <div [ngStyle]="{'text-align': 'center'}">
-        <button class="f-btn-big" nz-button [nzGhost]="false" [nzSize]="'large'">分类搜索</button>
+        <div nz-col [nzSpan]="3">
+          <button nz-button [nzSize]="'small'" (click)="toHostInfo()" style="margin-top: 10px;border: solid 1px rgba(134, 134, 241, 0.44);padding-bottom: 1px;">
+            <i class="anticon anticon-setting"></i><span>设置</span>
+          </button>
         </div>
-      </div>
-    <div class="f-sub-title">我的收藏</div>
+      </div >
+        <div class="f-sub-title">总资产</div>
+        <div  class = "host-parts">
+          <div nz-row >
+            <div *ngIf="user.is_auth" nz-col [nzSpan]="5" class="subParts">
+              <h2>总资产</h2>
+              <p class="heavyFont">{{user.total_asset.toFixed(2)}}￥</p>
+              <p>当前总收益为{{user.total_profit.toFixed(2)}}元</p>
+            </div>
+            <div *ngIf="user.is_auth" nz-col [nzSpan]="5" class="subParts">
+              <h2>基金产品</h2>
+              <p class="heavyFont">{{user.funds_netvalue.toFixed(2)}}￥</p>
+            </div>
+            <div *ngIf="!user.is_auth"nz-col [nzSpan]="10" class="subParts">
+              <h2>你还没有实名认证</h2>
+              <p>立即实名认证，轻松管理自己的账号资产</p>
+              <button nz-button [nzType]="'primary'" (click) = 'toCertificate()'>立即实名认证</button>
+            </div>
+            <div nz-col [nzSpan]="14"  class="subParts">
+              <h2>储蓄罐</h2><span>众宜精选货币基金（工银现金货币(000677)）</span>
+              <div nz-row >
+                <div nz-col [nzSpan]="14" class = "dsp">
+                  <p>-活期储蓄,随存随取,购买基金-方便</p>
+                  <p>-货币基金,收益保障,近似复利-稳赢</p>
+                  <p>-随时随地,极速到账,7*24小时-随取</p>
+              </div>
+                <div nz-col [nzSpan]="8">
+                  <p  class="heavyFont" style=" margin: 0;  font-size: 30px;">{{savingRate}}%</p>
+                  <p>{{savingDate}}收益率</p>
+                  <button nz-button [nzType]="'primary'" style="margin-top:15px" (click)="toSave()">
+                    <i class="anticon anticon-wallet" ></i>
+                    <span>存钱</span></button>
+                  <p>您已经存了{{user.savings}}元</p>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="f-sub-title">我的持仓</div>
+        <div class = "host-parts">
+          <nz-table #nzoTable
+                    [nzLoading]="o_loading"
+                    [nzAjaxData]="o_dataSet"
+                    [nzTotal]="o_total"
+                    [(nzPageIndex)]="o_current"
+                    (nzPageIndexChange)="_orefreshData()"
+                    [(nzPageSize)]="o_pageSize">
+            <thead nz-thead>
+            <tr>
+              <th><span>基金名称</span></th>
+              <th><span>持有份额</span></th>
+              <th><span>可用份额</span></th>
+              <th><span>最新净值</span></th>
+              <th><span>交易卡号</span></th>
+              <th><span>基金状态</span></th>
+              <th><span></span></th>
+            </tr>
+            </thead>
+            <tbody nz-tbody>
+            <tr nz-tbody-tr *ngFor="let data of nzoTable.data">
+              <td nz-td>{{data.fund_name}}</td>
+              <td nz-td>{{data.ship_share}}</td>
+              <td nz-td>{{data.ship_vaild_share}}</td>
+              <td nz-td>{{data.fund_last_netvalue}}</td>
+              <td nz-td>{{data.ship_bankcard_no}}</td>
+              <td nz-td>{{data.ship_state}}</td>
+              <td nz-td><a (click)="toDetails(data.fund_id)">详情</a></td>
+            </tr>
+            </tbody>
+          </nz-table>
+        </div>
+        <div class="f-sub-title">交易记录</div>
+        <div class = "host-parts">
+          <nz-table #nztTable
+                    [nzAjaxData]="t_dataSet"
+                    [nzLoading]="t_loading"
+                    [nzTotal]="t_total"
+                    [(nzPageIndex)]="t_current"
+                    (nzPageIndexChange)="_trefreshData()"
+                    [(nzPageSize)]="t_pageSize"
+                    (nzPageSizeChange)="_trefreshData()">
+            <thead nz-thead>
+            <tr>
+              <th><span>操作日期</span></th>
+              <th><span>操作时间</span></th>
+              <th><span>基金代码</span></th>
+              <th><span>基金名称</span></th>
+              <th><span>交易卡号</span></th>
+              <th><span>操作</span></th>
+              <th><span>成交金额</span></th>
+            </tr>
+            </thead>
+            <tbody nz-tbody>
+            <tr nz-tbody-tr *ngFor="let data of nztTable.data">
+              <td nz-td>{{data.ship_date}}</td>
+              <td nz-td>{{data.ship_time}}</td>
+              <td nz-td>{{data.fundcode}}</td>
+              <td nz-td>{{data.fund_name}}</td>
+              <td nz-td>{{data.ship_bankcard_no}}</td>
+              <td nz-td>{{data.operation === 'in'? '买入':'卖出'}}</td>
+              <td nz-td>{{data.ship_turnover}}</td>
+            </tr>
+            </tbody>
+          </nz-table>
+          <div [ngStyle]="{'text-align': 'center'}">
+          <button class="f-btn-big" nz-button [nzGhost]="false" [nzSize]="'large'">分类搜索</button>
+          </div>
+        </div>
+      <div class="f-sub-title">我的收藏</div>
       <div class = "host-parts">
         <div>
           <fscard [fCardList]="fav"></fscard>
         </div>
-
       </div>
+    </div>
   </div>
-
-</div>
 </div>

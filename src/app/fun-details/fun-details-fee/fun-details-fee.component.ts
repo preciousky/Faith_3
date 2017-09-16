@@ -31,7 +31,7 @@ export class FunDetailsFeeComponent implements OnInit {
     });
     // TODO update here
     // this.httpPostService.getReponseData('get-fund-details-fee', body)
-    this.httpPostService.getReponseDataByGet('funds/' + this.fundId + '?info_type=basic')
+    this.httpPostService.getReponseDataByGet('funds?info_type=fees')
       .subscribe(data => {
         const d = data.json();
         this.details = d.fee;
